@@ -8,7 +8,8 @@ import SplashScreen from 'react-native-splash-screen'
 
 export default LoginPage = ({ changeToSignUp, inputChange, password, email, onLogin, changeToReset }) => {
     return (
-        <ScrollView >
+        <ScrollView keyboardShouldPersistTaps='always'
+                    keyboardDismissMode={'interactive'}>
             <Container style={Styles.LoginBlock}>
                 <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
                 </LinearGradient>
