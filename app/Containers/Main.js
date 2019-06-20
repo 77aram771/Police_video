@@ -63,7 +63,7 @@ class Main extends Component {
         if (this.passwordLength()) {
           if (this.confirmPasswordValidation()) {
             console.log('sign up')
-            const data = { email, password, password, name: userName }
+            const data = { email, password, name: userName }
             this.props.onSignUp(data)
             this.resetState()
           }
