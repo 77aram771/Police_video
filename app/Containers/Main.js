@@ -13,6 +13,11 @@ import axios from 'axios';
 import * as action from '../store/actions/users';
 
 class Main extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    }
+  }
   constructor(props) {
     super(props)
     this.state = {

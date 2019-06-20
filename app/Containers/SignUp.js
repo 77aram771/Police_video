@@ -23,9 +23,9 @@ export default class SignUp extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.text}> {stringsoflanguages.first}</Text>
-                <Text style={styles.text}> {stringsoflanguages.second} </Text>
-                {/*<SignUpPage changeToLogIn={this.props.changeToLogIn}/>*/}
+                {/*<Text style={styles.text}> {stringsoflanguages.first}</Text>*/}
+                {/*<Text style={styles.text}> {stringsoflanguages.second} </Text>*/}
+                <SignUpPage changeToLogIn={this.props.changeToLogIn}/>
             </View>
 
         );
