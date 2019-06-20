@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import stringsoflanguages from '../leng/stringsoflanguages';
+
 export default class second extends React.Component {
-    static navigationOptions = ({ navigation }) => {
+    static navigationOptions = ({navigation}) => {
         return {
             title: navigation.getParam('Title', 'Default Title'),
         };
     };
+
     componentDidMount() {
         var that = this;
         var heading = '';
@@ -29,6 +31,7 @@ export default class second extends React.Component {
             Title: heading,
         });
     }
+
     render() {
         return (
             <View style={styles.MainContainer}>

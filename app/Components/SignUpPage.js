@@ -7,6 +7,7 @@ import IndexStyle from '../styles/indexStyle';
 import SplashScreen from 'react-native-splash-screen'
 
 export default SignUpPage = ({ changeToLogIn, inputChange, password, email, confirmPassword, userName, onSignUp }) => {
+
     return (
         <ScrollView >
             <Container style={Styles.LoginBlock}>

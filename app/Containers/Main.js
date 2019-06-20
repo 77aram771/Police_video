@@ -55,7 +55,6 @@ class Main extends Component {
     }
   }
 
-
   onSignUp = () => {
     const { password, email, confirmPassword, userName } = this.state
     if (this.fieldsFilledValidate(email, password, confirmPassword, userName)) {

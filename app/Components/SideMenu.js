@@ -11,7 +11,8 @@ import * as action from '../store/actions/users';
 class SideMenu extends Component {
   navigateToScreen = (route) => () => {
     const navigateAction = NavigationActions.navigate({
-      routeName: route
+      routeName: route,
+      navigationOptions: { header: null }
     });
     this.props.navigation.dispatch(navigateAction);
   }

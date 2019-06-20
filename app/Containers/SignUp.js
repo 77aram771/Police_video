@@ -6,12 +6,6 @@ import stringsoflanguages from '../leng/stringsoflanguages';
 
 export default class SignUp extends Component {
 
-    static navigationOptions = ({navigation}) => {
-        return {
-            title: navigation.getParam('Title', 'Default Title'),
-        };
-    };
-
     componentDidMount() {
         var that = this;
         var heading = '';
@@ -29,11 +23,17 @@ export default class SignUp extends Component {
     render() {
         return (
             <View>
-                <Text> {stringsoflanguages.first}</Text>
-                <Text> {stringsoflanguages.second} </Text>
-                <SignUpPage changeToLogIn={this.props.changeToLogIn}/>
+                <Text style={styles.text}> {stringsoflanguages.first}</Text>
+                <Text style={styles.text}> {stringsoflanguages.second} </Text>
+                {/*<SignUpPage changeToLogIn={this.props.changeToLogIn}/>*/}
             </View>
 
         );
     }
 }
+
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 40,
+    }
+})

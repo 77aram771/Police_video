@@ -4,11 +4,10 @@ import {Provider, connect} from 'react-redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'remote-redux-devtools';
 import reducer from './app/store/reducers/index';
-import Main from './app/Containers/Main';
 import {Root, Header} from 'native-base';
-import LanguageSelectionScreen from "./app/Components/LanguageSelectionScreen";
 import SplashScreen from 'react-native-splash-screen'
-import { DrawerActions, StackNavigator, NavigationActions, createStackNavigator,createAppContainer } from 'react-navigation';
+import RoutLeng from './app/Containers/RoutLeng'
+
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
@@ -27,7 +26,8 @@ export default class App extends Component {
                 <Provider store={store}>
                     {SplashScreen.show()}
                     {/*<Main/>*/}
-                    <LanguageSelectionScreen/>
+                    {/*<LanguageSelectionScreen/>*/}
+                    <RoutLeng/>
                 </Provider>
             </Root>
         );
