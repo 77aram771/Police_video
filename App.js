@@ -8,9 +8,9 @@ import Main from './app/Containers/Main';
 import {Root, Header} from 'native-base';
 import LanguageSelectionScreen from "./app/Components/LanguageSelectionScreen";
 import SplashScreen from 'react-native-splash-screen'
+import { DrawerActions, StackNavigator, NavigationActions, createStackNavigator,createAppContainer } from 'react-navigation';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-
 
 export default class App extends Component {
 

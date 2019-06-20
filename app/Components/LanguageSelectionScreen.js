@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import IndexStyle from "../styles/indexStyle";
 import USA_icon from '../images/USA.png'
 import FRA_icon from '../images/FRA.png'
-
+import stringsoflanguages from '../leng/stringsoflanguages'
 export default class LanguageSelectionScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -18,8 +18,10 @@ export default class LanguageSelectionScreen extends React.Component {
     }
 
     settext(value) {
+        console.log('nav', this.props.navigation.navigate)
         stringsoflanguages.setLanguage(value);
         this.props.navigation.navigate('ContentScreen', {JSON_Clicked_Item: value,});
+
     }
 
     render() {
@@ -46,12 +48,6 @@ export default class LanguageSelectionScreen extends React.Component {
                                     {item.longform}
                                 </Text>
                             </TouchableOpacity>
-                            {/*<Text*/}
-                            {/*    ref={item.shortform}*/}
-                            {/*    onPress={() => this.settext(item.shortform)}*/}
-                            {/*    style={styles.text}>*/}
-                            {/*    {item.longform}*/}
-                            {/*</Text>*/}
                         </View>
                     ))}
                 </View>

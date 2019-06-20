@@ -7,15 +7,15 @@ import SideMenu from '../Components/SideMenu';
 import StackNav from './Stacknav';
 
 
-
 const drawernav = createDrawerNavigator({
   Item1: {
       screen: StackNav,
     }
-  }, {
+  },
+    {
     contentComponent: SideMenu,
-    drawerWidth: Dimensions.get('window').width - 80, 
-    drawerBackgroundColor: 'transparent' 
+    drawerWidth: Dimensions.get('window').width - 80,
+    drawerBackgroundColor: 'transparent'
 });
 
 export default createAppContainer(drawernav);

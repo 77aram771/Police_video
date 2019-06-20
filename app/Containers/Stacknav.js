@@ -17,9 +17,17 @@ import MyVideos from './MyVideos';
 import Notification from './Notification';
 import LegalDetails from './LegalDetails';
 import Tutorial from './Tutorial'
+import LanguageSelectionScreen from "../Components/LanguageSelectionScreen";
+import SignUp from "./SignUp";
+
+
 
 const StackNav = createStackNavigator({
-
+  LanguageSelectionScreen: {
+    screen: LanguageSelectionScreen,
+    navigationOptions: { header: null }
+  },
+  ContentScreen: { screen: SignUp },
   Main: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({

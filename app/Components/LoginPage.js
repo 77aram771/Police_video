@@ -7,6 +7,7 @@ import IndexStyle from '../styles/indexStyle';
 import SplashScreen from 'react-native-splash-screen'
 
 export default LoginPage = ({ changeToSignUp, inputChange, password, email, onLogin, changeToReset }) => {
+
     return (
         <ScrollView keyboardShouldPersistTaps='always'
                     keyboardDismissMode={'interactive'}>
