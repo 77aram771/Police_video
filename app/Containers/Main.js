@@ -49,7 +49,7 @@ class Main extends Component {
   }
 
   onLogin = () => {
-    const { email, password } = this.state
+    const { email, password } = this.state;
     if (this.fieldsFilledValidate(email, password)) {
       if (this.isEmailAddress(email)) {
         console.log('login')

@@ -23,11 +23,6 @@ import SignUp from "./SignUp";
 
 
 const StackNav = createStackNavigator({
-  LanguageSelectionScreen: {
-    screen: LanguageSelectionScreen,
-    navigationOptions: { header: null }
-  },
-  ContentScreen: { screen: SignUp },
   Main: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({

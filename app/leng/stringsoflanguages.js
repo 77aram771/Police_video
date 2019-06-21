@@ -1,14 +1,13 @@
 import React from 'react';
 import LocalizedStrings from 'react-native-localization';
+import {Text} from "native-base";
 
 const strings = new LocalizedStrings({
     "en": {
-        first: "How are You ?",
-        second: "I am fine ",
+        SignUp: "Sign Up",
     },
     "fr": {
-        first: "comment allez vous",
-        second: "je vais bien",
+        SignUp: "S'inscrire",
     }
 });
 export default strings;

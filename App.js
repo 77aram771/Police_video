@@ -7,6 +7,7 @@ import reducer from './app/store/reducers/index';
 import {Root, Header} from 'native-base';
 import SplashScreen from 'react-native-splash-screen'
 import RoutLeng from './app/Containers/RoutLeng'
+import Main from "./app/Containers/Main";
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -25,8 +26,6 @@ export default class App extends Component {
                 <Header androidStatusBarColor="#030b10" style={{display: 'none'}}/>
                 <Provider store={store}>
                     {SplashScreen.show()}
-                    {/*<Main/>*/}
-                    {/*<LanguageSelectionScreen/>*/}
                     <RoutLeng/>
                 </Provider>
             </Root>

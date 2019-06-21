@@ -1,20 +1,20 @@
 import React from 'react';
 import { View, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native'
-import { Container, Content, Form, Text, Input, Item, Body } from 'native-base';
+import { Container, Text} from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../styles/loginStyle';
 import IndexStyle from '../styles/indexStyle';
-import SplashScreen from 'react-native-splash-screen'
+import stringsoflanguages from "../leng/stringsoflanguages";
 
 export default SignUpPage = ({ changeToLogIn, inputChange, password, email, confirmPassword, userName, onSignUp }) => {
-
     return (
         <ScrollView >
             <Container style={Styles.LoginBlock}>
                 <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
                 </LinearGradient>
+
                 <View style={{ width: 100 + '%', alignItems: 'center' }}>
-                    <Text style={Styles.title}>Sign Up</Text>
+                    <Text style={Styles.title}>{stringsoflanguages.SignUp}</Text>
                     <View style={{ width: 100 + '%' }}>
                         <Image source={require('../images/username.png')} style={{ position: 'absolute', top: 15, left: 5 }} />
                         <TextInput placeholder="Username" placeholderTextColor="white" value={userName} placeholderStyle={{ fontFamily: "MULI-REGULAR", fontSize: 17 }} style={IndexStyle.input}
