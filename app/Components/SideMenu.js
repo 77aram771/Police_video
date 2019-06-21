@@ -5,8 +5,11 @@ import { NavigationActions } from 'react-navigation';
 import { TouchableOpacity, Alert } from 'react-native';
 import { DrawerActions, StackNavigator } from 'react-navigation';
 import { Container, Content, ListItem, Text, Left, Header, Body, Thumbnail, Right, Button, StatusBar, Row } from 'native-base';
+import stringsoflanguages from "../leng/stringsoflanguages";
 
 import * as action from '../store/actions/users';
+
+const {Home_N, StartVideo, MyProfile, Messages, MyVideos, Notifications, LegalDetails, Tutorial, Logout} = stringsoflanguages;
 
 class SideMenu extends Component {
   navigateToScreen = (route) => () => {
@@ -24,7 +27,7 @@ class SideMenu extends Component {
       [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
+          //onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
         {text: 'OK', onPress: () => this.props.exit('data', this.props.user.data.token)},
@@ -58,7 +61,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/play-button.png')} style={{ width: 25, height: 25, marginRight: 3 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={() => this.navigateToScreen('Main')}>Start video</Text>
+              <Text style={styles.navItemStyle} onPress={() => this.navigateToScreen('Main')}>{StartVideo}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -66,7 +69,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/user.png')} style={{ width: 25, height: 25, }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-                <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Profile')}>My Profile</Text>
+                <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Profile')}>{MyProfile}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -74,7 +77,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/envelope.png')} style={{ width: 25, height: 17, }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-                <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Messages')}>Messages</Text>
+                <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Messages')}>{Messages}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -82,7 +85,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/video-camera.svg')} style={{ width: 25, height: 25, marginRight: 0 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Myvideos')}>My Videos</Text>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Myvideos')}>{MyVideos}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -90,7 +93,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/notification.png')} style={{ width: 25, height: 25, marginRight: 0 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Notification')}>Notifications</Text>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Notification')}>{Notifications}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -98,7 +101,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/plain.png')} style={{ width: 25, height: 25, marginRight: 0 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('LegalDetails')}>Legal Details</Text>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('LegalDetails')}>{LegalDetails}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -106,7 +109,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/settingsBook.png')} style={{ width: 25, height: 20, marginRight: 0 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Tutorial')}>Tutorial</Text>
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Tutorial')}>{Tutorial}</Text>
               </Body>
             </ListItem>
             <ListItem noBorder icon>
@@ -114,7 +117,7 @@ class SideMenu extends Component {
                 <Thumbnail square source={require('../images/logout-icon.png')} style={{ width: 25, height: 20, marginRight: 0 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
-                <Text style={styles.navItemStyle} onPress={()=>this.isExit()}>Logout</Text>
+                <Text style={styles.navItemStyle} onPress={()=>this.isExit()}>{Logout}</Text>
               </Body>
             </ListItem>
           </Content>

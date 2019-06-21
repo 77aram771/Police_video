@@ -8,16 +8,25 @@ import ConfirmPage from '../Components/ConfirmPage'
 import ResetPasswordPage from '../Components/ResetPasswordPage'
 import HomeRoute from './HomeRoute';
 import axios from 'axios';
+import stringsoflanguages from "../leng/stringsoflanguages";
 
 
 import * as action from '../store/actions/users';
 
+const {EmailIsNotCorrect, PasswordLengthShould, PasswordstringsoflanguagesDoesNotMatch, AllFieldsShouldBeFilled} = stringsoflanguages;
+
 class Main extends Component {
+
+
+
   static navigationOptions = ({ navigation }) => {
     return {
-      header: null
+      header: null,
+      headerLeft: null,
+      gesturesEnabled: false,
+      swipeEnabled: false
     }
-  }
+  };
   constructor(props) {
     super(props)
     this.state = {
@@ -52,7 +61,7 @@ class Main extends Component {
     const { email, password } = this.state;
     if (this.fieldsFilledValidate(email, password)) {
       if (this.isEmailAddress(email)) {
-        console.log('login')
+        //console.log('login')
         const data = { email, password }
         this.props.onLogIn(data)
         this.resetState()
@@ -66,7 +75,7 @@ class Main extends Component {
       if (this.isEmailAddress(email)) {
         if (this.passwordLength()) {
           if (this.confirmPasswordValidation()) {
-            console.log('sign up')
+            //console.log('sign up')
             const data = { email, password, name: userName }
             this.props.onSignUp(data)
             this.resetState()
@@ -82,13 +91,13 @@ class Main extends Component {
     if (boolean) {
       return true
     }
-    this.showMsg('email is not correct')
+    this.showMsg(EmailIsNotCorrect)
     return false
   }
 
   passwordLength = () => {
     if (this.state.password.length < 6) {
-      this.showMsg('password length should be more than 6 sign')
+      this.showMsg(PasswordLengthShould)
       return false
     }
     return true
@@ -99,7 +108,7 @@ class Main extends Component {
     if (password === confirmPassword) {
       return true
     }
-    this.showMsg('password does not match')
+    this.showMsg(PasswordDoesNotMatch)
     return false
   }
 
@@ -107,7 +116,7 @@ class Main extends Component {
     let isFlag = true;
     fields.forEach(item => {
       if (item.length < 2) {
-        this.showMsg('all fields shuld be filled')
+        this.showMsg(stringsoflanguages.AllFieldsShouldBeFilled)
         isFlag = false
         return
       }

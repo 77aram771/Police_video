@@ -17,10 +17,12 @@ import MyVideos from './MyVideos';
 import Notification from './Notification';
 import LegalDetails from './LegalDetails';
 import Tutorial from './Tutorial'
-import LanguageSelectionScreen from "../Components/LanguageSelectionScreen";
-import SignUp from "./SignUp";
+import stringsoflanguages from '../leng/stringsoflanguages'
 
+const {Home_N, StartVideo} = stringsoflanguages;
 
+console.log("Home_N", Home_N)
+console.log("StartVideo", StartVideo)
 
 const StackNav = createStackNavigator({
   Main: {

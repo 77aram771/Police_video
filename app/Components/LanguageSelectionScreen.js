@@ -2,10 +2,18 @@ import React from 'react';
 import {View, Text, ScrollView, Image, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import IndexStyle from "../styles/indexStyle";
-import USA_icon from '../images/USA.png'
-import FRA_icon from '../images/FRA.png'
-import stringsoflanguages from '../leng/stringsoflanguages'
+import USA_icon from '../images/USA.png';
+import FRA_icon from '../images/FRA.png';
+import stringsoflanguages from '../leng/stringsoflanguages';
+
 export default class LanguageSelectionScreen extends React.Component {
+
+    static navigationOptions = {
+        headerLeft: null,
+        gesturesEnabled: false,
+        swipeEnabled: false
+    };
+
     constructor(props) {
         super(props);
         this.state = {};
@@ -18,7 +26,7 @@ export default class LanguageSelectionScreen extends React.Component {
     }
 
     settext(value) {
-        console.log('nav', this.props.navigation.navigate)
+        //console.log('nav', this.props.navigation.navigate)
         stringsoflanguages.setLanguage(value);
         this.props.navigation.navigate('ContentScreen', {JSON_Clicked_Item: value,});
 

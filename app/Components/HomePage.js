@@ -4,7 +4,7 @@ import { Container, Content, Form, Text, Input, Item, Body } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../styles/loginStyle';
 import IndexStyle from '../styles/indexStyle';
-import SplashScreen from 'react-native-splash-screen'
+import stringsoflanguages from "../leng/stringsoflanguages";
 
 export default HomePage = ({  }) => {
     return (
@@ -13,7 +13,7 @@ export default HomePage = ({  }) => {
                 <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
                 </LinearGradient>
                 <TouchableOpacity style={IndexStyle.whiteBtn}>
-                    <Text style={{ fontFamily: 'Arial-BoldMT', color: '#bc1d23', fontSize: 16 }}>start record</Text>
+                    <Text style={{ fontFamily: 'Arial-BoldMT', color: '#bc1d23', fontSize: 16 }}>{stringsoflanguages.StartRecord}</Text>
                 </TouchableOpacity>
             </Container>
         </ScrollView>

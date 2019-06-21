@@ -6,19 +6,15 @@ import stringsoflanguages from '../leng/stringsoflanguages';
 
 export default class SignUp extends Component {
 
-    componentDidMount() {
-        var that = this;
-        var heading = '';
-        if (this.props.navigation.state.params.JSON_Clicked_Item === 'en') {
-            heading = 'Selected Language English';
+    static navigationOptions = ({ navigation }) => {
+        return {
+            header: null,
+            headerLeft: null,
+            gesturesEnabled: false,
+            swipeEnabled: false
         }
-        else if (this.props.navigation.state.params.JSON_Clicked_Item === 'fr') {
-            heading = 'Selected Language French';
-        }
-        that.props.navigation.setParams({
-            Title: heading,
-        });
-    }
+    };
+
 
     render() {
         return (

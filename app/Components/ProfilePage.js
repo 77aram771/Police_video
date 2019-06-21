@@ -4,6 +4,7 @@ import { Container, Content, Form, Text, Input, Item, Body } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../styles/loginStyle';
 import IndexStyle from '../styles/indexStyle';
+import stringsoflanguages from "../leng/stringsoflanguages";
 
 export default ProfilePage = ({ }) => {
     return (
@@ -12,7 +13,7 @@ export default ProfilePage = ({ }) => {
                 <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
                 </LinearGradient>
                 <View style={{ width: 100 + '%', alignItems: 'center' }}>
-                    <Text style={Styles.title}>Profile Page</Text>
+                    <Text style={Styles.title}>{stringsoflanguages.ProfilePage}</Text>
                 </View>
             </Container>
         </ScrollView>
