@@ -11,7 +11,13 @@ import * as action from '../store/actions/users';
 
 const {Home_N, StartVideo, MyProfile, Messages, MyVideos, Notifications, LegalDetails, Tutorial, Logout} = stringsoflanguages;
 
+
 class SideMenu extends Component {
+
+  componentDidMount = () => {
+    console.log('Home_N', Home_N)
+  }
+
   navigateToScreen = (route) => () => {
     const navigateAction = NavigationActions.navigate({
       routeName: route,
