@@ -19,7 +19,7 @@ export default class LanguageSelectionScreen extends React.Component {
         this.state = {};
         const lang = [
             {shortform: 'en', longform: 'English'},
-            {shortform: 'fr', longform: 'French'},
+            {shortform: 'fr', longform: 'Français'},
         ];
 
         global.lang = lang;

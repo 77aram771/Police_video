@@ -19,10 +19,10 @@ import LegalDetails from './LegalDetails';
 import Tutorial from './Tutorial'
 import stringsoflanguages from '../leng/stringsoflanguages'
 
-const {Home_N, StartVideo} = stringsoflanguages;
-
-console.log("Home_N", Home_N)
-console.log("StartVideo", StartVideo)
+// const {Home_N, StartVideo} = stringsoflanguages;
+//
+// console.log("Home_N", Home_N)
+// console.log("StartVideo", StartVideo)
 
 const StackNav = createStackNavigator({
   Main: {

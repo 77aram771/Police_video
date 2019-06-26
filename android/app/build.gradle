@@ -94,6 +94,23 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+
+packagingOptions {
+    exclude 'META-INF/NOTICE' // will not include NOTICE file
+    exclude 'META-INF/LICENSE' // will not include LICENSE file
+    // as noted by @Vishnuvathsan you may also need to include
+    // variations on the file name. It depends on your dependencies.
+    // Some other common variations on notice and license file names
+    exclude 'META-INF/notice'
+    exclude 'META-INF/notice.txt'
+    exclude 'META-INF/license'
+    exclude 'META-INF/license.txt'
+    exclude 'META-INF/DEPENDENCIES'
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+     exclude 'META-INF/androidx.exifinterface_exifinterface.version'
+          exclude 'META-INF/proguard/androidx-annotations.pro'
+}
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     compileOptions {
@@ -107,6 +124,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'react-native-camera', 'general'
+        missingDimensionStrategy 'react-native-camera', 'mlkit'
     }
     splits {
         abi {
@@ -138,6 +157,9 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-camera-kit')
+    implementation project(':react-native-camera')
+
     implementation project(':react-native-localization')
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-splash-screen')

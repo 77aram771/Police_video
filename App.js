@@ -7,6 +7,7 @@ import reducer from './app/store/reducers/index';
 import {Root, Header} from 'native-base';
 import SplashScreen from 'react-native-splash-screen'
 import RoutLeng from './app/Containers/RoutLeng'
+import LiveVideo from "./app/Components/LiveVideo";
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -18,7 +19,7 @@ export default class App extends Component {
         // After having done stuff (such as async tasks) hide the splash screen
         setTimeout(() => {
             SplashScreen.hide();
-        }, 5000)
+        }, 2000)
 
     };
 
@@ -28,7 +29,8 @@ export default class App extends Component {
                 <Header androidStatusBarColor="#030b10" style={{display: 'none'}}/>
                 <Provider store={store}>
                     {SplashScreen.show()}
-                    <RoutLeng/>
+                    {/*<RoutLeng/>*/}
+                    <LiveVideo/>
                 </Provider>
             </Root>
         );

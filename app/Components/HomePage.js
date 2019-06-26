@@ -12,7 +12,7 @@ export default HomePage = ({  }) => {
             <Container style={Styles.LoginBlock}>
                 <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
                 </LinearGradient>
-                <TouchableOpacity style={IndexStyle.whiteBtn}>
+                <TouchableOpacity style={IndexStyle.whiteBtn2}>
                     <Text style={{ fontFamily: 'Arial-BoldMT', color: '#bc1d23', fontSize: 16 }}>{stringsoflanguages.StartRecord}</Text>
                 </TouchableOpacity>
             </Container>

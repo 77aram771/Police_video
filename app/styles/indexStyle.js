@@ -18,6 +18,14 @@ export default styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 6
     },
+    whiteBtn2: {
+        backgroundColor: 'white',
+        width: 240,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 6
+    },
 
     transparentBtn: {
         backgroundColor: 'transparent',

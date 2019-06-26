@@ -88,7 +88,7 @@ class SideMenu extends Component {
             </ListItem>
             <ListItem noBorder icon>
               <Left>
-                <Thumbnail square source={require('../images/video-camera.svg')} style={{ width: 25, height: 25, marginRight: 0 }} />
+                <Thumbnail square source={require('../images/play-button.png')} style={{ width: 25, height: 25, marginRight: 0 }} />
               </Left>
               <Body style={styles.navSectionStyle}>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Myvideos')}>{MyVideos}</Text>
