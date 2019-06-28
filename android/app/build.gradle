@@ -126,6 +126,9 @@ packagingOptions {
         versionName "1.0"
         missingDimensionStrategy 'react-native-camera', 'general'
         missingDimensionStrategy 'react-native-camera', 'mlkit'
+         targetSdkVersion 23
+
+            multiDexEnabled true
     }
     splits {
         abi {
@@ -157,7 +160,10 @@ packagingOptions {
 }
 
 dependencies {
-    implementation project(':react-native-camera-kit')
+    implementation project(':react-native-image-crop-picker')
+    implementation project(':react-native-vector-icons')
+    implementation project(':react-native-nodemediaclient')
+    implementation project(':react-native-video')
     implementation project(':react-native-camera')
 
     implementation project(':react-native-localization')

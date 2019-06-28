@@ -7,7 +7,7 @@ import reducer from './app/store/reducers/index';
 import {Root, Header} from 'native-base';
 import SplashScreen from 'react-native-splash-screen'
 import RoutLeng from './app/Containers/RoutLeng'
-import LiveVideo from "./app/Components/LiveVideo";
+import PushScreen from "./app/Components/PushScreen";
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -28,9 +28,9 @@ export default class App extends Component {
             <Root>
                 <Header androidStatusBarColor="#030b10" style={{display: 'none'}}/>
                 <Provider store={store}>
-                    {SplashScreen.show()}
+                    {/*{SplashScreen.show()}*/}
                     {/*<RoutLeng/>*/}
-                    <LiveVideo/>
+                    <PushScreen/>
                 </Provider>
             </Root>
         );

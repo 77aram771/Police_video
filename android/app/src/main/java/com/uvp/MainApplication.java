@@ -3,7 +3,10 @@ package com.uvp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.wix.RNCameraKit.RNCameraKitPackage;
+import com.reactnative.ivpusic.imagepicker.PickerPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import cn.nodemedia.react_native_nodemediaclient.NodeMediaReactPackage;
+import com.brentvatne.react.ReactVideoPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -31,7 +34,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNCameraKitPackage(),
+            new PickerPackage(),
+            new VectorIconsPackage(),
+            new NodeMediaReactPackage(),
+            new ReactVideoPackage(),
             new RNCameraPackage(),
             new ReactNativeLocalizationPackage(),
             new RNGestureHandlerPackage(),
