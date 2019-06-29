@@ -15,8 +15,16 @@ class PushScreen extends React.Component {
         }
     }
 
-    useEffect () {
-
+    fileUpload(file){
+        const url = 'http://localhost:3000/uploadfile';
+        const formData = new FormData();
+        formData.append('file',file);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+        return  post(url, formData,config)
     }
 
 
@@ -45,22 +53,7 @@ class PushScreen extends React.Component {
             return this.renderVideo(video);
             let file = this.state.video;
 
-            let formdata = new FormData();
-
-            formdata.append('video', file)
-
-            axios({
-                url: 'http://localhost:3000/uploadfile',
-                method: 'POST',
-                headers: {
-                    authorization: 'Token'
-                },
-                data: formdata
-            }).then((res) => {
-                console.log(res)
-            }).catch(err => {
-                console.log(err)
-            })
+            fileUpload(video)
 
         }
 
