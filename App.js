@@ -28,9 +28,9 @@ export default class App extends Component {
             <Root>
                 <Header androidStatusBarColor="#030b10" style={{display: 'none'}}/>
                 <Provider store={store}>
-                    {/*{SplashScreen.show()}*/}
-                    {/*<RoutLeng/>*/}
-                    <PushScreen/>
+                    {SplashScreen.show()}
+                    <RoutLeng/>
+                    {/*<PushScreen/>*/}
                 </Provider>
             </Root>
         );

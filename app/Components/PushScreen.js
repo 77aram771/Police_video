@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Text, TextInput, View, Image, Button, StatusBar, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import Video from 'react-native-video';
-import axios from 'axios';
+import axios, {post} from 'axios';
 import image from '../images/edit.png'
 
 class PushScreen extends React.Component {
@@ -15,19 +15,47 @@ class PushScreen extends React.Component {
         }
     }
 
-    fileUpload(file){
-        const url = 'http://localhost:3000/uploadfile';
-        const formData = new FormData();
-        formData.append('file',file);
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        }
-        return  post(url, formData,config)
-    }
 
+    // fileUpload = (file) => {
+    //     const url = 'http://localhost:3000/uploadfile';
+    //     const formData = new FormData();
+    //     formData.append('file', file);
+    //     console.log('formData', formData);
+    //     const config = {
+    //         headers: {
+    //             'content-type': 'multipart/form-data'
+    //         }
+    //     };
+    //     return post(url, formData, config)
+    // };
 
+    // uploadFile = (files) => {
+    //     var formData = new FormData();
+    //     formData.append(`file${files}`);
+    //
+    //     fetch('http://localhost:3000/uploadfile', {
+    //         // content-type header should not be specified!
+    //         method: 'POST',
+    //         body: formData,
+    //     })
+    //         .then(response => response.json())
+    //         .then(success => {
+    //             // Do something with the successful response
+    //         })
+    //         .catch(error => console.log(error)
+    //         );
+    // };
+
+    uploadObj = (file) => {
+        let form = new FormData();
+        form.append('triangle.obj', new Blob([file]));
+        fetch('http://192.168.0.138:3000/uploadfile', {
+            method: 'POST',
+            body: form
+        }).then(response => {
+            return response.blob();
+        });
+    };
 
     pickSingleWithCamera(cropping, mediaType = 'photo') {
         ImagePicker.openCamera({
@@ -42,19 +70,16 @@ class PushScreen extends React.Component {
                 video: {uri: video.path, width: video.width, height: video.height, mime: video.mime},
                 images: null
             });
+
         }).catch(e => alert(e));
 
 
     }
 
     renderAsset(video) {
-
         if (video.mime && video.mime.toLowerCase().indexOf('video/') !== -1) {
             return this.renderVideo(video);
             let file = this.state.video;
-
-            fileUpload(video)
-
         }
 
         return this.renderImage(video);
@@ -64,6 +89,10 @@ class PushScreen extends React.Component {
     renderVideo(video) {
 
         console.log('rendering video');
+        console.log('video', video);
+        // this.fileUpload(video)
+        //this.uploadFile(video)
+        this.uploadObj(video)
         return (<View style={{height: 300, width: 300}}>
             <Video source={{uri: video.uri, type: video.mime}}
                    style={{
