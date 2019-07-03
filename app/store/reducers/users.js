@@ -31,13 +31,13 @@ export default function user(state = initialState, action) {
             return { ...state, ...{ isloading: false, loaded: true, signUp: false, main: true }, data: action.payload }
 
         case 'TO_LOGIN':
-            return { ...state, ...{ email: false, login: true, signUp: false } }
+            return { ...state, ...{ email: false, login: true, signUp: false } };
 
         case 'TO_SIGNUP':
-            return { ...state, ...{ login: false, signUp: true } }
+            return { ...state, ...{ login: false, signUp: true } };
 
         case 'TO_RESET':
-            return { ...state, ...{ login: false, email: true } }
+            return { ...state, ...{ login: false, email: true } };
 
             case FORGOT_REQUEST_SUCCESS:
             return { ...state, ...{isloading: false, loaded: true, email: false, confirm: true }, data: action.payload }
@@ -49,7 +49,7 @@ export default function user(state = initialState, action) {
                 return { ...state, ...{ isloading: false, loaded: true, reset: false, login: false, main: true }, data: action.payload }
 
         case EXIT:
-            return initialState
+            return initialState;
 
         default:
             return state

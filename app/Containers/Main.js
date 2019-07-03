@@ -166,7 +166,7 @@ class Main extends Component {
   }
 
   render() {
-    console.log('main', this.props.user)
+    // console.log('main', this.props.user)
     if (this.props.user.login) {
       return (
         <LoginPage
@@ -222,13 +222,13 @@ class Main extends Component {
 }
 
 
-mapStateToProps = (state) => {
+this.mapStateToProps = (state) => {
   return {
     user: state.user
   }
 }
 
-mapDispatchToProps = (dispatch) => {
+this.mapDispatchToProps = (dispatch) => {
   return {
     onLogIn: (data) => {
       action.onLogIn(dispatch, data)

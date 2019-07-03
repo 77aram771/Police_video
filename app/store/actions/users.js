@@ -11,7 +11,7 @@ import {
   EXIT
 } from '../constants/users';
 import { Toast } from 'native-base';
-
+import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 
 import Config from '../../Configs/Config';
@@ -24,6 +24,8 @@ showMsg = (text) => {
     duration: 5000
   })
 }
+
+
 
 
 
