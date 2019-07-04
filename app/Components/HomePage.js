@@ -1,18 +1,14 @@
 import React, {useEffect} from 'react';
-import {View, TouchableOpacity, TextInput, Image, ScrollView} from 'react-native'
+import {View, TouchableOpacity, TextInput, Image, ScrollView, Platform} from 'react-native'
 import {Container, Content, Form, Text, Input, Item, Body} from 'native-base';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../styles/loginStyle';
 import IndexStyle from '../styles/indexStyle';
 import stringsoflanguages from "../leng/stringsoflanguages";
-import axios, {post} from 'axios';
-
+import axios from 'axios';
 import Video from "react-native-video";
 import image from "../images/edit.png";
-import Config from "../Configs/Config";
-import {LOGIN_REQUEST_SUCCESS} from "../store/constants/users";
-
 
 export default class HomePage extends React.Component {
 
@@ -25,17 +21,18 @@ export default class HomePage extends React.Component {
     }
 
     fileUpload(file) {
-        console.log(file);
         const formData = new FormData();
         formData.append('file', file);
-        axios.post('http://128.199.247.46:3300/uploadfile', formData)
+        console.log(formData);
+        axios.post('http://128.199.247.46:3637/uploadfile', formData)
             .then((response) => {
                 console.log(response)
-            }).catch((err) => {
+            })
+            .catch((err) => {
             console.log('err', err)
         })
+    };
 
-    }
 
     pickSingleWithCamera(cropping, mediaType = 'photo') {
         ImagePicker.openCamera({
@@ -64,7 +61,6 @@ export default class HomePage extends React.Component {
     renderVideo(video) {
         console.log('rendering video');
         console.log('video', video);
-        // this.fileUpload(video)
         this.fileUpload(this.state.video)
 
         return (<View style={{height: 300, width: 300}}>
