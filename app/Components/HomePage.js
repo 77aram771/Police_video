@@ -20,18 +20,41 @@ export default class HomePage extends React.Component {
         }
     }
 
+    // fileUpload(file) {
+    //     console.log(file)
+    //     const formData = new FormData();
+    //     formData.append('file', file);
+    //     console.log(formData);
+    //     axios.post('http://128.199.247.46:3637/uploadfile', formData)
+    //         .then((response) => {
+    //             console.log(response)
+    //         })
+    //         .catch((err) => {
+    //         console.log('err', err)
+    //     })
+    // };
     fileUpload(file) {
-        const formData = new FormData();
-        formData.append('file', file);
-        console.log(formData);
-        axios.post('http://128.199.247.46:3637/uploadfile', formData)
-            .then((response) => {
-                console.log(response)
-            })
-            .catch((err) => {
-            console.log('err', err)
+        console.log(file, '5555555555')
+        var formData = new FormData();
+        formData.append('myFile', file);
+        let data = {
+            "myFile": formData._parts[0][1]
+        };
+        console.log(data, '11111111111111')
+        axios({
+            url: 'http://128.199.247.46:3637/uploadfile',
+            method: 'POST',
+            type: 'file',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: data
+        }).then(function (response) {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
         })
-    };
+    }
 
 
     pickSingleWithCamera(cropping, mediaType = 'photo') {
@@ -88,7 +111,8 @@ export default class HomePage extends React.Component {
         return (
             <ScrollView>
                 <Container style={Styles.LoginBlock}>
-                    <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
+                    <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']}
+                                    style={IndexStyle.gradient}>
                     </LinearGradient>
                     <TouchableOpacity style={IndexStyle.whiteBtn2}
                                       onPress={() => this.pickSingleWithCamera(false, mediaType = 'video')}>
