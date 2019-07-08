@@ -226,7 +226,7 @@ this.mapStateToProps = (state) => {
   return {
     user: state.user
   }
-}
+};
 
 this.mapDispatchToProps = (dispatch) => {
   return {

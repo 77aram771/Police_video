@@ -20,36 +20,13 @@ export default class HomePage extends React.Component {
         }
     }
 
-    // fileUpload(file) {
-    //     console.log(file)
-    //     const formData = new FormData();
-    //     formData.append('file', file);
-    //     console.log(formData);
-    //     axios.post('http://128.199.247.46:3637/uploadfile', formData)
-    //         .then((response) => {
-    //             console.log(response)
-    //         })
-    //         .catch((err) => {
-    //         console.log('err', err)
-    //     })
-    // };
     fileUpload(file) {
-        console.log(file, '5555555555')
+        return console.log(file);
         var formData = new FormData();
-        formData.append('myFile', file);
-        let data = {
-            "myFile": formData._parts[0][1]
-        };
-        console.log(data, '11111111111111')
-        axios({
-            url: 'http://128.199.247.46:3637/uploadfile',
-            method: 'POST',
-            type: 'file',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: data
-        }).then(function (response) {
+        formData.append(file);
+        console.log(formData);
+        axios.post('http://192.168.2.140:3637/uploadfile',  {'myFile':formData})
+        .then(function (response) {
             console.log(response)
         }).catch((error) => {
             console.log(error)
