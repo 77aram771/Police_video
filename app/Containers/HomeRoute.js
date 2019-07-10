@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView, View, Text} from 'react-native';
-import {AppRegistry, Dimensions} from 'react-native';
+import {Dimensions} from 'react-native';
 import {createDrawerNavigator, createStackNavigator, createAppContainer} from 'react-navigation';
 
 import SideMenu from '../Components/SideMenu';

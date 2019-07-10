@@ -1,15 +1,19 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+
+export const {height, width} = Dimensions.get('window');
+
+console.log(width);
+console.log(height);
 
 export default styles = StyleSheet.create({
-
     gradient: {
-        height: 100 + '%',
-        width: 200 + '%',
+        height: height,
+        width: width,
         position: 'absolute',
         right: 0,
         top: 0
     },
-
     whiteBtn: {
         backgroundColor: 'white',
         width: 180,
@@ -26,16 +30,14 @@ export default styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 6
     },
-
     transparentBtn: {
         backgroundColor: 'transparent',
         borderWidth: 2,
         width: 180, height: 50, alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 6, 
+        borderRadius: 6,
         borderColor: 'white'
     },
-
     input: {
         width: 100 + '%',
         color: 'white',

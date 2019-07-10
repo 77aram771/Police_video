@@ -34,6 +34,14 @@ const strings = new LocalizedStrings({
         NotificationPage: 'Notification page',
         LegalDetailsPage: 'Legal Details page',
         TutorialPage: 'Tutorial page',
+        DuringPoliceCheck: 'During a police check, you can film!',
+        CircularOfDecember: 'Circular of December 23, 2008 N: 2008 8433',
+        ThePoliceDoNotHaveSpecial: 'The police do not have special protection in terms of image rights.',
+        HowToFilm: 'How to film?',
+        ConductNeutralTestimonialVideo: 'Conduct a neutral testimonial video for acceptance as evidence.',
+        DoNotCommentWhileFilming: 'Do not comment while filming.  Do not participate in the action it is important that we can hear the maximum what the police say.  Each word / insult can be a piece of evidence.',
+        TryToFilmAllTheClues: 'Try to film all the clues that can indicate where the control is located (street name, name of coffee shops, metro exit, etc ...)',
+        TheIdealIsThatThereAreSeveral: 'The ideal is that there are several people to film from different angles (one police closer by crossing arms holding his cell quietly without flash, the other from further ...)',
     },
     "fr": {
         SignUp: "S'inscrire",
@@ -65,6 +73,15 @@ const strings = new LocalizedStrings({
         NotificationPage: 'Page de notification',
         LegalDetailsPage: 'Page de détails juridiques',
         TutorialPage: 'Page tutoriel',
+        DuringPoliceCheck: 'Pendant un contrôle de police, vous pouvez filmer!',
+        CircularOfDecember: 'Circulaire du 23 décembre 2008 N: 2008 8433',
+        ThePoliceDoNotHaveSpecial: 'La police n "a pas de protection spéciale en termes de droits d" image.',
+        HowToFilm: 'Comment filmer?',
+        ConductNeutralTestimonialVideo: 'Réalisez une vidéo de témoignage neutre pour l\'acceptation en tant que preuve.',
+        DoNotCommentWhileFilming: 'Ne commentez pas pendant le tournage. Ne participez pas à l\'action, il est important que nous puissions entendre au maximum ce que dit la police. Chaque mot / insulte peut être un élément de preuve.',
+        TryToFilmAllTheClues: 'Essayez de filmer tous les indices qui peuvent indiquer où se trouve le contrôle (nom de la rue, nom des cafés, sortie du métro, etc.).',
+        TheIdealIsThatThereAreSeveral: 'L\'idéal est qu\'il y ait plusieurs personnes à filmer sous des angles différents (un policier se rapprochant en croisant les bras tenant sa cellule silencieusement sans flash, l\'autre de plus loin ...)',
+
     }
 });
 export default strings;

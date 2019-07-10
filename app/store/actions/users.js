@@ -11,10 +11,11 @@ import {
     EXIT
 } from '../constants/users';
 import {Toast} from 'native-base';
-import {AsyncStorage} from 'react-native';
+import {AsyncStorage} from "react-native";
 import axios from 'axios';
 
 import Config from '../../Configs/Config';
+
 
 showMsg = (text) => {
     Toast.show({
@@ -23,6 +24,26 @@ showMsg = (text) => {
         position: 'center',
         duration: 5000
     })
+};
+
+storeToken = async (user) => {
+    console.log('user', user);
+    try {
+        await AsyncStorage.setItem("userData", JSON.stringify(user));
+        // await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+    } catch (error) {
+        console.log("Something went wrong", error);
+    }
+};
+
+getToken = async () => {
+    try {
+        let userData = await AsyncStorage.getItem("userData");
+        let data = JSON.parse(userData);
+        console.log("data-------------------", data);
+    } catch (error) {
+        console.log("Something went wrong", error);
+    }
 }
 
 
@@ -30,18 +51,24 @@ export function onLogIn(dispatch, data) {
     console.log('data', Config.URI, data);
     // dispatch({ type: LOGIN_REQUEST })
     axios.post(`${Config.URI}login`, data)
-        .then((response) => {
-            dispatch({type: LOGIN_REQUEST_SUCCESS, payload: response.data})
-            console.log('response', response);
-            // console.log('AsyncStorage', AsyncStorage)
-        }).catch((err) => {
-        console.log('err', err)
-        showMsg(err.response.data.msg)
-    })
+        .then(async (response) => {
+            dispatch({type: LOGIN_REQUEST_SUCCESS, payload: response.data});
+            storeToken(response.data.token);
+            console.log('AsyncStorage', await AsyncStorage.getItem('userData'));
+            console.log('AsyncStorage aasdasdqawascasf', await AsyncStorage);
+            console.log('response.data', response.data);
+            getToken();
+            console.log('-------------------------------------------------------------')
+        })
+        .catch((err) => {
+            console.log('err', err)
+            showMsg(err.response.data.msg)
+        })
 }
 
+
 export function onSignUp(dispatch, data) {
-    console.log('data', Config.URI, data)
+    console.log('data', Config.URI, data);
     // dispatch({ type: LOGIN_REQUEST })
     console.log('--------------')
     axios.post(`${Config.URI}signup`, data)

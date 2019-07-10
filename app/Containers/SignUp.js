@@ -3,7 +3,6 @@ import SignUpPage from '../Components/SignUpPage';
 import {View, Text, StyleSheet} from 'react-native';
 import stringsoflanguages from '../leng/stringsoflanguages';
 
-
 export default class SignUp extends Component {
 
     static navigationOptions = ({ navigation }) => {
@@ -14,7 +13,6 @@ export default class SignUp extends Component {
             swipeEnabled: false
         }
     };
-
 
     render() {
         return (

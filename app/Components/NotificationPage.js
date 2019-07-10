@@ -13,7 +13,9 @@ export default NotificationPage = ({ }) => {
                 <LinearGradient colors={['#030b10', '#12314d', '#12314d', '#030b10']} style={IndexStyle.gradient}>
                 </LinearGradient>
                 <View style={{ width: 100 + '%', alignItems: 'center' }}>
-                    <Text style={Styles.title}></Text>
+                    <Text style={Styles.title}>
+                        Test
+                    </Text>
                 </View>
             </Container>
         </ScrollView>

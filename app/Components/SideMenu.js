@@ -11,6 +11,7 @@ import * as action from '../store/actions/users';
 
 const {Home_N, StartVideo, MyProfile, Messages, MyVideos, Notifications, LegalDetails, Tutorial, Logout} = stringsoflanguages;
 
+console.log('Home_N', Home_N)
 
 class SideMenu extends Component {
 

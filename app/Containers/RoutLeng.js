@@ -12,7 +12,6 @@ const RoutLeng = createStackNavigator({
             gesturesEnabled: false,
             swipeEnabled: false
         },
-
     },
     ContentScreen: {screen: Main },
 });
