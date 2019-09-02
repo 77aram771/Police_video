@@ -1,0 +1,2 @@
+export const ADD_VIDEO_SUCCESS = 'ADD_VIDEO_SUCCESS';
+export const DELETE_VIDEO = 'DELETE_VIDEO';

@@ -3,8 +3,8 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 export const {height, width} = Dimensions.get('window');
 
-console.log(width);
-console.log(height);
+//console.log(width);
+//console.log(height);
 
 export default styles = StyleSheet.create({
     gradient: {

@@ -18,7 +18,7 @@ const {EmailIsNotCorrect, PasswordLengthShould, PasswordstringsoflanguagesDoesNo
 class Main extends Component {
 
     componentDidMount = () => {
-        console.log('AsyncStorage-----------------------------------------', AsyncStorage.getItem("userData"))
+        //console.log('AsyncStorage-----------------------------------------', AsyncStorage.getItem("userData"))
     };
 
     static navigationOptions = ({navigation}) => {

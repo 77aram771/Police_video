@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import MyVideosPage from '../Components/MyVideosPage'
 
 
+
+
 class MyVideos extends Component {
-  render() {
-    return (
-      <MyVideosPage/>
-    );
-  }
+
+
+    render() {
+        return (
+            <MyVideosPage/>
+        );
+    }
 }
 
 mapStateToProps = (state) => {
@@ -18,8 +22,7 @@ mapStateToProps = (state) => {
 }
 
 mapDispatchToProps = (dispatch) => {
-    return {
-    }
+    return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyVideos)

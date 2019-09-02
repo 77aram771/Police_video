@@ -27,12 +27,12 @@ showMsg = (text) => {
 };
 
 storeToken = async (user) => {
-    console.log('user', user);
+    //console.log('user', user);
     try {
         await AsyncStorage.setItem("userData", JSON.stringify(user));
         // await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
     } catch (error) {
-        console.log("Something went wrong", error);
+        //console.log("Something went wrong", error);
     }
 };
 
@@ -40,49 +40,49 @@ getToken = async () => {
     try {
         let userData = await AsyncStorage.getItem("userData");
         let data = JSON.parse(userData);
-        console.log("data-------------------", data);
+        //console.log("data-------------------", data);
     } catch (error) {
-        console.log("Something went wrong", error);
+       // console.log("Something went wrong", error);
     }
 }
 
 
 export function onLogIn(dispatch, data) {
-    console.log('data', Config.URI, data);
+    //console.log('data', Config.URI, data);
     // dispatch({ type: LOGIN_REQUEST })
     axios.post(`${Config.URI}login`, data)
         .then(async (response) => {
             dispatch({type: LOGIN_REQUEST_SUCCESS, payload: response.data});
             storeToken(response.data.token);
-            console.log('AsyncStorage', await AsyncStorage.getItem('userData'));
-            console.log('AsyncStorage aasdasdqawascasf', await AsyncStorage);
-            console.log('response.data', response.data);
+            //console.log('AsyncStorage', await AsyncStorage.getItem('userData'));
+            //console.log('AsyncStorage aasdasdqawascasf', await AsyncStorage);
+           // console.log('response.data', response.data);
             getToken();
-            console.log('-------------------------------------------------------------')
+            //console.log('-------------------------------------------------------------')
         })
         .catch((err) => {
-            console.log('err', err)
+            //console.log('err', err)
             showMsg(err.response.data.msg)
         })
 }
 
 
 export function onSignUp(dispatch, data) {
-    console.log('data', Config.URI, data);
+   // console.log('data', Config.URI, data);
     // dispatch({ type: LOGIN_REQUEST })
-    console.log('--------------')
+    //console.log('--------------')
     axios.post(`${Config.URI}signup`, data)
         .then((response) => {
             dispatch({type: REGiSTER_REQUEST_SUCCESS, payload: response.data})
         }).catch((err) => {
-        console.log('err', err)
+        //console.log('err', err)
         showMsg(err.response.data.msg)
     })
 }
 
 export function onForgotPassword(dispatch, data) {
-    console.log('data', Config.URI, data)
-    console.log('==================')
+   // console.log('data', Config.URI, data)
+    //console.log('==================')
     axios.post(`${Config.URI}forgot`, data)
         .then((response) => {
             console.log('res', response.data)
@@ -95,7 +95,7 @@ export function onForgotPassword(dispatch, data) {
 
 export function onConfirmCode(dispatch, token, data) {
     console.log('action', token)
-    console.log('----------------')
+   // console.log('----------------')
     axios.post(`${Config.URI}confirm`, data, {headers: {"Authorization": `Bearer ${token}`}})
         .then((response) => {
             dispatch({type: CONFIRM_REQUEST_SUCCESS, payload: response.data})
@@ -106,8 +106,8 @@ export function onConfirmCode(dispatch, token, data) {
 }
 
 export function onResetPassword(dispatch, token, data) {
-    console.log('action', token)
-    console.log('++++++++')
+   // console.log('action', token)
+   // console.log('++++++++')
     axios.post(`${Config.URI}reset`, data, {headers: {"Authorization": `Bearer ${token}`}})
         .then((response) => {
             dispatch({type: RESET_REQUEST_SUCCESS, payload: response.data})
@@ -118,21 +118,21 @@ export function onResetPassword(dispatch, token, data) {
 }
 
 export function toLogin(dispatch) {
-    console.log('action upload')
+   // console.log('action upload')
     dispatch({type: 'TO_LOGIN'})
 }
 
 export function toSignUp(dispatch) {
-    console.log('action upload')
+    //console.log('action upload')
     dispatch({type: 'TO_SIGNUP'})
 }
 
 export function toReset(dispatch) {
-    console.log('action upload')
+   // console.log('action upload')
     dispatch({type: 'TO_RESET'})
 }
 
 export function exit(dispatch, data) {
-    console.log('action upload', data)
+    //console.log('action upload', data)
     dispatch({type: EXIT})
 }

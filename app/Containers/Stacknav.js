@@ -24,7 +24,8 @@ import MyVideos from './MyVideos';
 import Notification from './Notification';
 import LegalDetails from './LegalDetails';
 import Tutorial from './Tutorial'
-import stringsoflanguages from '../leng/stringsoflanguages'
+import stringsoflanguages from '../leng/stringsoflanguages';
+import PlayScreen from '../Components/PlayScreen';
 
 const {Home_N, StartVideo} = stringsoflanguages;
 
@@ -217,6 +218,16 @@ const StackNav = createStackNavigator({
                 textAlign: 'center',
             },
             headerTintColor: 'white',
+        })
+    },
+
+    PlayScreen: {
+        screen: PlayScreen,
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                display: "none",
+            },
+
         })
     },
 

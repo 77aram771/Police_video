@@ -16,7 +16,6 @@ export default class App extends Component {
         setTimeout(() => {
             SplashScreen.hide();
         }, 2000)
-
     };
 
     render() {
