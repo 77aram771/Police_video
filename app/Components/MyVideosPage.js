@@ -18,8 +18,9 @@ const deviceWidth = Dimensions.get("window").width;
 
 
 export default class MyVideosPage extends React.Component {
-
     render() {
+        console.log(this.props)
+
         return (
 
             <Container style={Styles.LoginBlock}>

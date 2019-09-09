@@ -17,10 +17,6 @@ const {EmailIsNotCorrect, PasswordLengthShould, PasswordstringsoflanguagesDoesNo
 
 class Main extends Component {
 
-    componentDidMount = () => {
-        //console.log('AsyncStorage-----------------------------------------', AsyncStorage.getItem("userData"))
-    };
-
     static navigationOptions = ({navigation}) => {
         return {
             header: null,
@@ -68,6 +64,8 @@ class Main extends Component {
                 const data = {email, password}
                 this.props.onLogIn(data)
                 this.resetState()
+                console.log('AsyncStorage-----------------------------------------', AsyncStorage.getItem("userData"))
+
             }
             else {
                 console.log('qweqweqweqweasdasdasdasd')
@@ -85,6 +83,7 @@ class Main extends Component {
                         const data = {email, password, name: userName}
                         this.props.onSignUp(data)
                         this.resetState()
+
                     }
                 }
             }
@@ -172,7 +171,7 @@ class Main extends Component {
     }
 
     render() {
-        //console.log('main', this.props.user)
+        console.log('main', this.props.user)
         if (this.props.user.login) {
             return (
                 <LoginPage

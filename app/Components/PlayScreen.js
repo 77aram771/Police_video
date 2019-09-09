@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {connect} from 'react-redux';
 import {NodeCameraView} from "react-native-nodemediaclient";
 import {
     StyleSheet,
@@ -9,9 +10,21 @@ import {
     PermissionsAndroid,
     Platform
 } from "react-native";
+import * as actions from "../store/actions/video-action";
 
 const deviceWidth = Dimensions.get("window").width;
 
+const settings = {
+    camera: {cameraId: 0, cameraFrontMirror: true},
+    audio: {bitrate: 32000, profile: 1, samplerate: 44100},
+    video: {
+        preset: 24,
+        bitrate: 400000,
+        profile: 2,
+        fps: 30,
+        videoFrontMirror: true
+    }
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -63,27 +76,17 @@ const styles = StyleSheet.create({
         borderColor: "#d1a667",
         borderWidth: 3,
         borderRadius: 2,
-        borderStyle: 'solid',
         height: 50,
         width: deviceWidth / 2,
         paddingVertical: 10,
         paddingHorizontal: 30,
         elevation: 4,
-        marginVertical: 10,
-        alignContent: 'flex-start',
-
+        marginVertical: 10
     },
     adminBtnContainer: {
         position: "absolute",
         top: 0,
         right: 0,
-        margin: 30,
-        marginTop: 60
-    },
-    CamBtnContainer: {
-        position: "absolute",
-        top: 0,
-        right: 50 + '%',
         margin: 30,
         marginTop: 60
     },
@@ -98,80 +101,33 @@ const styles = StyleSheet.create({
     btnText: {color: "#FFF", fontSize: 18}
 });
 
-export default class PlayScreen extends Component {
+class PlayScreen extends Component {
     state = {
         admin: false,
         isPublishing: false,
         userComment: "",
         hasPermission: false,
-        paused: true,
-        cam: true,
-        camera: {cameraId: 0, cameraFrontMirror: true},
-        audio: {bitrate: 32000, profile: 1, samplerate: 44100},
-        video: {
-            preset: 24,
-            bitrate: 400000,
-            profile: 2,
-            fps: 30,
-            videoFrontMirror: true
-        }
+        paused: true
     };
 
-
-    changeCamera = async () => {
-        this.setState({
-            cam: !this.state.cam
-        });
-
-        if (this.state.cam) {
-            this.setState(prevState => ({
-                camera: {
-                    ...prevState.camera,
-                    cameraId: 0
-                }
-            }));
-            if (Platform.OS === "android") {
-                if (this.state.hasPermission) {
-                    await this.checkPermissions();
-                }
-            }
-        }
-        else {
-            this.setState(prevState => ({
-                camera: {
-                    ...prevState.camera,
-                    cameraId: 1
-                }
-            }));
-            if (Platform.OS === "android") {
-                if (!this.state.hasPermission) {
-                    await this.checkPermissions();
-                }
-            }
-        }
-
-    }
-
-
     renderCameraView = () => {
-        const {hasPermission} = this.state;
-        if (Platform.OS === "android" && !hasPermission) {
-            return (
-                <NodeCameraView
-                    style={styles.nodeCameraView}
-                    /* eslint-disable */
-                    ref={vb => {
-                        this.vb = vb;
-                    }}
-                    /* eslint-enable */
-                    outputUrl="rtmp://live.mux.com/app/STREAM-KEY-HERE"
-                    camera={{cameraId: 0, cameraFrontMirror: true}}
-                    audio={this.state.audio}
-                    video={this.state.video}
-                    autopreview
-                />
-            );
-        }
+        console.log('this.props  PS', this.props.user.data.user._id)
+        const urlID = `rtmp://128.199.247.46/live/${this.props.user.data.user._id}`;
+        return (
+            <NodeCameraView
+                style={styles.nodeCameraView}
+                /* eslint-disable */
+                ref={vb => {
+                    this.vb = vb;
+                }}
+                /* eslint-enable */
+                outputUrl={urlID}
+                camera={settings.camera}
+                audio={settings.audio}
+                video={settings.video}
+                autopreview
+            />
+        );
     };
 
     checkPermissions = async () => {
@@ -201,8 +157,8 @@ export default class PlayScreen extends Component {
     onPressPublishBtn = async () => {
         const {isPublishing: publishingState, hasPermission} = this.state;
         if (Platform.OS === "android") {
-            if (!hasPermission) {
-                await this.checkPermissions();
+            if (hasPermission) {
+                this.checkPermissions();
                 return;
             }
         }
@@ -229,8 +185,18 @@ export default class PlayScreen extends Component {
                         </Text>
                     </View>
                 </TouchableOpacity>
-
             </View>
         );
     }
 }
+
+const mstp = (state) => ({
+    user: state.user
+});
+
+const mdtp = {
+    ...actions,
+};
+
+
+export default connect(mstp, mdtp)(PlayScreen);
