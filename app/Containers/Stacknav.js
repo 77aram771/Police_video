@@ -26,6 +26,7 @@ import LegalDetails from './LegalDetails';
 import Tutorial from './Tutorial'
 import stringsoflanguages from '../leng/stringsoflanguages';
 import PlayScreen from '../Components/PlayScreen';
+import MyVideosPage from '../Components/MyVideosPage';
 
 const {Home_N, StartVideo} = stringsoflanguages;
 
@@ -121,6 +122,37 @@ const StackNav = createStackNavigator({
         screen: MyVideos,
         navigationOptions: ({navigation}) => ({
             title: "My Videos",
+            headerStyle: {
+                height: 100,
+                textAlign: 'center',
+                backgroundColor: '#030b10',
+                borderBottomWidth: 0.5,
+                borderBottomStyle: 'solid',
+                borderColor: '#334759',
+            },
+            headerTitleStyle: {
+                width: 90 + '%',
+                color: 'white',
+                textAlign: 'center',
+            },
+            headerTintColor: 'white',
+            headerRight: (
+                <TouchableOpacity onPress={() => console.log('qweasdzx')}>
+                    <Icon ios='ios-search' android="md-search" style={{
+                        fontSize: 40,
+                        color: 'white',
+                        marginRight: 30,
+                        textAlign: 'center',
+                    }}/>
+                </TouchableOpacity>
+            )
+        })
+    },
+
+    MyVideosPage: {
+        screen: MyVideosPage,
+        navigationOptions: ({navigation}) => ({
+            title: "MyVideosPage",
             headerStyle: {
                 height: 100,
                 textAlign: 'center',

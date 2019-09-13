@@ -1,12 +1,10 @@
 import React from 'react';
 import {View, TouchableOpacity, TextInput, Image, ScrollView, Platform} from 'react-native'
 import {Container, Content, Form, Text, Input, Item, Body} from 'native-base';
-import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../styles/loginStyle';
 import IndexStyle from '../styles/indexStyle';
 import stringsoflanguages from "../leng/stringsoflanguages";
-import axios from 'axios';
 import Video from "react-native-video";
 import image from "../images/edit.png";
 import {connect} from 'react-redux';
@@ -19,7 +17,8 @@ class HomePage extends React.Component {
         super(props);
         this.state = {
             video: null,
-            image: image
+            image: image,
+
         }
     }
 
